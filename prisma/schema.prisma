@@ -1,0 +1,77 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Setting {
+  id            String   @id @default(cuid())
+  siteName      String   @default("SoccerMidable")
+  domain        String   @default("soccermidable.ca")
+  heroVideoUrl  String?
+  heroPosterUrl String?
+  contactEmail  String?
+  contactPhone  String?
+  whatsapp      String?
+  facebook      String?
+  instagram     String?
+  youtube       String?
+  linkedin      String?
+  updatedAt     DateTime @updatedAt
+  createdAt     DateTime @default(now())
+}
+
+model Program {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title_fr    String
+  title_en    String
+  summary_fr  String
+  summary_en  String
+  body_fr     String
+  body_en     String
+  imageUrl    String?
+  isFeatured  Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Testimonial {
+  id        String   @id @default(cuid())
+  name      String
+  role_fr   String?
+  role_en   String?
+  quote_fr  String
+  quote_en  String
+  avatarUrl String?
+  createdAt DateTime @default(now())
+}
+
+model Post {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title_fr    String
+  title_en    String
+  excerpt_fr  String
+  excerpt_en  String
+  body_fr     String
+  body_en     String
+  coverUrl    String?
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Lead {
+  id        String   @id @default(cuid())
+  name      String?
+  email     String?
+  phone     String?
+  message   String?
+  locale    String?
+  source    String?
+  createdAt DateTime @default(now())
+}

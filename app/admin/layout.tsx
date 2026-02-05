@@ -8,8 +8,11 @@ export default async function AdminLayout({ children }: { children: React.ReactN
       <body>
         <div className="nav">
           <div className="container navInner">
-            <Link className="logo" href="/admin">Admin — SoccerMidable</Link>
-            <div style={{display:"flex",gap:10,flexWrap:"wrap",justifyContent:"flex-end"}}>
+            <Link className="logo" href="/admin">
+              <img src="/images/logo-purple.jpeg" alt="SoccerMidable" style={{ height: 24, width: "auto", borderRadius: 4 }} />
+              Admin — SoccerMidable
+            </Link>
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "flex-end" }}>
               <Link className="pill" href="/admin/programs">Programs</Link>
               <Link className="pill" href="/admin/posts">Blog</Link>
               <Link className="pill" href="/admin/testimonials">Testimonials</Link>
@@ -19,7 +22,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             </div>
           </div>
         </div>
-        <div className="container" style={{padding:"20px 18px"}}>{children}</div>
+        <div className="container" style={{ padding: "20px 18px" }}>{children}</div>
       </body>
     </html>
   );

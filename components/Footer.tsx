@@ -8,8 +8,7 @@ export default function Footer({ locale, socials }: { locale: "fr" | "en", socia
       <div className="container" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr 1fr", gap: 16 }}>
         <div>
           <div className="logo" style={{ marginBottom: 8 }}>
-            <img src="/images/logo-white.jpeg" alt="SoccerMidable" style={{ height: 28, width: "auto", borderRadius: 6 }} />
-            SoccerMidable
+            <img src="/images/logo-white.jpeg" alt="SoccerMidable" style={{ height: 100, width: "auto", borderRadius: 18 }} />
           </div>
           <div className="small">soccermidable.ca — FR/EN, responsive, ROI-first.</div>
           <div style={{ display: "flex", gap: 10, marginTop: 10, flexWrap: "wrap" }}>

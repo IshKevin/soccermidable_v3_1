@@ -12,9 +12,9 @@ export default function Navbar({ locale }: { locale: "fr" | "en" }) {
   return (
     <div className="nav">
       <div className="container navInner">
-        <Link className="logo" href={`/${locale}`}>
-          <img src="/images/logo-purple.jpeg" alt="SoccerMidable" style={{ height: 32, width: "auto", borderRadius: 8 }} />
-          SoccerMidable
+        <Link className="logo" href={`/${locale}`} style={{ padding: "8px 0" }}>
+          <img src="/images/logo-purple.jpeg" alt="SoccerMidable" style={{ height: 110, width: "auto", borderRadius: 16 }} />
+          <span>SoccerMidable</span>
         </Link>
         <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
           <Link className="pill" href={`/${locale}/programs`}>{t.programs}</Link>

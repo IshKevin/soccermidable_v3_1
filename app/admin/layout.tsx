@@ -9,8 +9,8 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         <div className="nav">
           <div className="container navInner">
             <Link className="logo" href="/admin">
-              <img src="/images/logo-purple.jpeg" alt="SoccerMidable" style={{ height: 24, width: "auto", borderRadius: 4 }} />
-              Admin — SoccerMidable
+              <img src="/images/logo-purple.jpeg" alt="SoccerMidable" style={{ height: 80, width: "auto", borderRadius: 16 }} />
+              Admin
             </Link>
             <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "flex-end" }}>
               <Link className="pill" href="/admin/programs">Programs</Link>

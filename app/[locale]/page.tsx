@@ -38,7 +38,7 @@ export default async function Home({ params }: { params: { locale: "fr" | "en" }
           <div>
             <h1 className="hTitle">{t.title}</h1>
             <p className="hSub">{t.sub}</p>
-            <div style={{display:"flex",gap:10,flexWrap:"wrap"}}>
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
               <Link className="btn btnPrimary" href={`/${params.locale}/contact`}>{t.cta1}</Link>
               <Link className="btn" href={`/${params.locale}/programs`}>{t.cta2}</Link>
             </div>
@@ -53,11 +53,15 @@ export default async function Home({ params }: { params: { locale: "fr" | "en" }
             </div>
           </div>
 
-          <div>
-            <HeroVideo src={settings?.heroVideoUrl || null} poster={settings?.heroPosterUrl || null} />
-            <div className="small" style={{marginTop:10}}>
-              Domain: <b>{settings?.domain || "soccermidable.ca"}</b>
+          <div className="card" style={{ padding: 20, aspectRatio: "16/9", display: "grid", placeItems: "center", background: "#000", position: "relative", borderRadius: 24, border: "2px solid var(--accent)" }}>
+            <div style={{ textAlign: "center" }}>
+              <div style={{ fontSize: 40, marginBottom: 10 }}>▶️</div>
+              <div className="small" style={{ color: "#fff", fontWeight: 700 }}>
+                {params.locale === "fr" ? "VIDÉO FEEDBACK CLIENT" : "CUSTOMER FEEDBACK VIDEO"}
+              </div>
+              <div className="small" style={{ opacity: 0.7 }}>{params.locale === "fr" ? "(Présentation client)" : "(Customer Presentation)"}</div>
             </div>
+            <div style={{ position: "absolute", inset: 0, opacity: 0.15, background: "radial-gradient(circle, var(--accent) 0%, transparent 70%)" }} />
           </div>
         </div>
       </section>
@@ -65,23 +69,23 @@ export default async function Home({ params }: { params: { locale: "fr" | "en" }
       <section className="section">
         <div className="container">
           <h2 className="sectionTitle">{t.featured}</h2>
-          <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:12}}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12 }}>
             {programs.map(p => (
-              <div key={p.id} className="card" style={{padding:14}}>
-                <div style={{fontWeight:900,marginBottom:6}}>{params.locale==="fr" ? p.title_fr : p.title_en}</div>
-                <div className="small">{params.locale==="fr" ? p.summary_fr : p.summary_en}</div>
-                <Link className="pill" style={{display:"inline-block",marginTop:10}} href={`/${params.locale}/programs#${p.slug}`}>Details</Link>
+              <div key={p.id} className="card" style={{ padding: 14 }}>
+                <div style={{ fontWeight: 900, marginBottom: 6 }}>{params.locale === "fr" ? p.title_fr : p.title_en}</div>
+                <div className="small">{params.locale === "fr" ? p.summary_fr : p.summary_en}</div>
+                <Link className="pill" style={{ display: "inline-block", marginTop: 10 }} href={`/${params.locale}/programs#${p.slug}`}>Details</Link>
               </div>
             ))}
           </div>
 
-          <div style={{marginTop:22}}>
+          <div style={{ marginTop: 22 }}>
             <h2 className="sectionTitle">{t.proof}</h2>
-            <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:12}}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12 }}>
               {testimonials.map(x => (
-                <div key={x.id} className="card" style={{padding:14}}>
-                  <div style={{fontWeight:900}}>{x.name}</div>
-                  <div className="small" style={{marginTop:6}}>{params.locale==="fr" ? x.quote_fr : x.quote_en}</div>
+                <div key={x.id} className="card" style={{ padding: 14 }}>
+                  <div style={{ fontWeight: 900 }}>{x.name}</div>
+                  <div className="small" style={{ marginTop: 6 }}>{params.locale === "fr" ? x.quote_fr : x.quote_en}</div>
                 </div>
               ))}
             </div>

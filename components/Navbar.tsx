@@ -32,7 +32,7 @@ export default function Navbar({ locale }: { locale: "fr" | "en" }) {
       `}</style>
       <div className="container navInner" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap" }}>
         <Link className="logo" href={`/${locale}`} style={{ padding: "8px 0" }}>
-          <img src="/images/logo-purple.jpeg" alt="SoccerMidable" className="logoImg" />
+          <img src="/images/logo-white.jpeg" alt="SoccerMidable" className="logoImg" />
           <span>SoccerMidable</span>
         </Link>
         <button className="hamburger" onClick={() => setIsOpen(!isOpen)} aria-label="Menu">

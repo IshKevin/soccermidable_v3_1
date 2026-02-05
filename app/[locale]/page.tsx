@@ -69,7 +69,7 @@ export default async function Home({ params }: { params: { locale: "fr" | "en" }
       <section className="section">
         <div className="container">
           <h2 className="sectionTitle">{t.featured}</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12 }}>
+          <div className="grid3">
             {programs.map(p => (
               <div key={p.id} className="card" style={{ padding: 14 }}>
                 <div style={{ fontWeight: 900, marginBottom: 6 }}>{params.locale === "fr" ? p.title_fr : p.title_en}</div>
@@ -81,7 +81,7 @@ export default async function Home({ params }: { params: { locale: "fr" | "en" }
 
           <div style={{ marginTop: 22 }}>
             <h2 className="sectionTitle">{t.proof}</h2>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12 }}>
+            <div className="grid3">
               {testimonials.map(x => (
                 <div key={x.id} className="card" style={{ padding: 14 }}>
                   <div style={{ fontWeight: 900 }}>{x.name}</div>

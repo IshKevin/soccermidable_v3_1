@@ -1,8 +1,26 @@
+"use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { FormEvent } from "react";
+
 export default function Footer({ locale, socials }: { locale: "fr" | "en", socials: any }) {
+  const router = useRouter();
   const t = locale === "fr"
     ? { newsletter: "Newsletter", email: "Email", join: "S'inscrire", widget: "Widget", admin: "Admin" }
     : { newsletter: "Newsletter", email: "Email", join: "Join", widget: "Widget", admin: "Admin" };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    try {
+      await fetch("/api/lead", { method: "POST", body: formData });
+      router.push(`/${locale}/thank-you`);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <footer className="footer">
       <div className="container" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr 1fr", gap: 16 }}>
@@ -20,12 +38,12 @@ export default function Footer({ locale, socials }: { locale: "fr" | "en", socia
         </div>
         <div>
           <div style={{ fontWeight: 800, marginBottom: 8 }}>{t.newsletter}</div>
-          <form action={`/api/lead`} method="post">
+          <form onSubmit={handleSubmit} action={`/api/lead`} method="post">
             <label>{t.email}</label>
-            <input className="input" name="email" placeholder="you@email.com" />
+            <input className="input" name="email" type="email" required placeholder="you@email.com" />
             <input type="hidden" name="source" value="newsletter" />
             <input type="hidden" name="locale" value={locale} />
-            <button className="btn btnPrimary" style={{ marginTop: 10, width: "100%" }}>{t.join}</button>
+            <button type="submit" className="btn btnPrimary" style={{ marginTop: 10, width: "100%" }}>{t.join}</button>
           </form>
         </div>
         <div>
